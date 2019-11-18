@@ -2,7 +2,7 @@
 Oscar Martinez, Xinduo Fan
 CS 271
 Dr. Lall
-Project 8
+Project 9
 */
 
 
@@ -30,12 +30,12 @@ class graph
 
 
 		void dfs();		//it visits in small to large by changing the order of the adjList
-		void topologicalsort();
+		string topologicalsort();
 		std::vector<int> countInDegree();
 
-		void display_colors();		//TODO turn to string
-		void display_adjList();		//TODO turn to string
-		void display_adjMatrix();		//TODO turn to string
+		string display_colors();
+		string display_adjList();
+		string display_adjMatrix();
 
 
 		graph& operator=(const graph& g);   //sets this table equal to the assigned h's table
