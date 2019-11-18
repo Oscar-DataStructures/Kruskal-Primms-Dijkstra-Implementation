@@ -15,7 +15,8 @@ Project 9
 using namespace std;
 
 // ============================== Constructor ==================================
-disJointSet::disJointSet(std::string filename)
+template <class KeyType>
+djs<KeyType>::djs()
 //Preconditions:  N/A
 //Postcondition:  N/A
 {

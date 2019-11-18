@@ -1,7 +1,7 @@
 
 CPPOPTIONS = -c -g -Wall -std=c++0x
 
-all: test_graph
+all: test_graph test_djs
 
 //==============================================================================
 

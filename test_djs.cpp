@@ -9,7 +9,7 @@ Project 9
 #include <iostream>
 #include <string>
 #include <cassert>
-#include "disJointSet.h"
+#include "djs.h"
 
 
 // ======================= Test Default Constructor Method =====================

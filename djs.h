@@ -20,8 +20,6 @@ class Node
 {
 	public:
 		KeyType key; //value held in node
-
-  protected:
 		Node<KeyType>* parent; //parent node
 };
 
@@ -31,7 +29,7 @@ Node<KeyType>* newNode(KeyType key);
 
 
 template <class KeyType>
-class djs : Node<KeyType>
+class djs
 {
 	public:
     djs();
@@ -42,7 +40,8 @@ class djs : Node<KeyType>
 		// findSset(KeyType x);
 
 	protected:
-		map<KeyType x, KeyType y> setMap;
+		// map<int x, KeyType y> setMap;
+		Node<KeyType>* root;
 
 };
 
