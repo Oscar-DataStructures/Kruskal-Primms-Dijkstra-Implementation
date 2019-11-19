@@ -21,12 +21,12 @@ using namespace std;
 
 enum Color {WHITE, GRAY, BLACK};	//0 = white, 1 = gray, 2 = black
 
-
+template <class KeyType>
 class graph
 {
 	public:
 		graph(std::string filename);		//making an adjacency list/matrix as datatype
-		graph(const graph& g);
+		graph(const graph<KeyType>& g);
 		~graph();
 
 
@@ -42,7 +42,7 @@ class graph
 		void Prim(int root);
 		std::string Dijkstra(int s);
 
-		graph& operator=(const graph& g);   //sets this table equal to the assigned h's table
+		graph<KeyType>& operator=(const graph<KeyType>& g);   //sets this table equal to the assigned h's table
 
 	private:
 		std::vector<int> colors;		//make a std::vector to hold the color of n things

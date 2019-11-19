@@ -37,15 +37,17 @@ class djs
     djs(const djs<KeyType>& ds);
 		~djs();
 
+		djs<KeyType>& deepCopy();
 		void clearNodes();
 		void makeSet(KeyType x);
 		void unionSets(KeyType x, KeyType y);
-		Node<KeyType>* findSet(KeyType x);
 
-		std::string toString() const;
-		
+
+		std::string display_setMap();
+
 	protected:
-		map<int, KeyType> setMap;
+		map<KeyType, Node<KeyType>*> setMap;	//mapping of set values to nodes which have tree structure built using pointers
+		Node<KeyType>* findSet(KeyType x);
 
 };
 

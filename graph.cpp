@@ -19,7 +19,8 @@ Project 9
 using namespace std;
 
 // ============================== Constructor ==================================
-graph::graph(std::string filename)
+template <class KeyType>
+graph<KeyType>::graph(std::string filename)
 //Preconditions:  N/A
 //Postcondition:  Constructs adjMatrix and adjList
 {
@@ -29,7 +30,8 @@ graph::graph(std::string filename)
 
 
 // ============================= Copy Constructor ==============================
-graph::graph(const graph& g)
+template <class KeyType>
+graph<KeyType>::graph(const graph<KeyType>& g)
 //Preconditions:  N/A
 //Postcondition:  this will be the same as graph g
 {
@@ -41,7 +43,8 @@ graph::graph(const graph& g)
 
 
 // ============================= Destructor ====================================
-graph::~graph()
+template <class KeyType>
+graph<KeyType>::~graph()
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
@@ -50,7 +53,8 @@ graph::~graph()
 
 
 // ============================ Depth First Search Method ======================
-void graph::dfs()
+template <class KeyType>
+void graph<KeyType>::dfs()
 //Preconditions:  N/A
 //Postcondition:  Will return the order in which vertexs are processed
 {
@@ -65,7 +69,8 @@ void graph::dfs()
 
 
 // ============================ Topological Sort Method ========================
-string graph::topologicalsort()
+template <class KeyType>
+string graph<KeyType>::topologicalsort()
 //Preconditions:  N/A
 //Postcondition:  Will detect cycle and output sorted order
 {
@@ -110,7 +115,8 @@ string graph::topologicalsort()
 
 
 // ============================= Count In Degree Method ========================
-std::vector<int> graph::countInDegree()
+template <class KeyType>
+std::vector<int> graph<KeyType>::countInDegree()
 //Preconditions:  N/A
 //Postcondition:  returns a vector of the inDegree count for each vertex
 {
@@ -130,7 +136,8 @@ std::vector<int> graph::countInDegree()
 
 
 // ============================ Display Colors  Method =========================
-string graph::display_colors()
+template <class KeyType>
+string graph<KeyType>::display_colors()
 //Preconditions:  N/A
 //Postcondition:  will return string of colors of the vertices
 {
@@ -153,7 +160,8 @@ string graph::display_colors()
 
 
 // =========================== Display Adjaceny List Method ====================
-string graph::display_adjList()
+template <class KeyType>
+string graph<KeyType>::display_adjList()
 //Preconditions:  N/A
 //Postcondition:  returns a string represenation of the adjList
 {
@@ -181,7 +189,8 @@ string graph::display_adjList()
 
 
 // =========================== Display Adjaceny Matrix Method ==================
-string graph::display_adjMatrix()
+template <class KeyType>
+string graph<KeyType>::display_adjMatrix()
 //Preconditions:  N/A
 //Postcondition:  returns a string represenation of the adjMatrix
 {
@@ -204,34 +213,42 @@ string graph::display_adjMatrix()
 
 
 // ========================== Kruskal's Algorithm Method =======================
-std::string graph::Kruskal()
+template <class KeyType>
+std::string graph<KeyType>::Kruskal()
 //Preconditions:  N/A
 //Postcondition:
 {
-
+  djs<KeyType>();
+  for(int i = 0; i < numVertices; i++)
+  {
+    //makeSet(i);
+  }
 }
 
 
 // =========================== Prim's Algorithm Method =========================
-void graph::Prim(int root)
+template <class KeyType>
+void graph<KeyType>::Prim(int root)
 //Preconditions:  N/A
 //Postcondition:
 {
-
+  //use queue
 }
 
 
 // ========================= Dijkstra's Algorithm Method =======================
-std::string graph::string Dijkstra(int s)
+template <class KeyType>
+std::string graph<KeyType>::Dijkstra(int s)
 //Preconditions:  N/A
 //Postcondition:
 {
-
+  //use queue
 }
 
 
 // =========================== Assignment Opertor Method =======================
-graph& graph::operator=(const graph& g)
+template <class KeyType>
+graph<KeyType>& graph<KeyType>::operator=(const graph<KeyType>& g)
 //Preconditions:  N/A
 //Postcondition:  Sets this to be the same as g
 {
@@ -243,7 +260,8 @@ graph& graph::operator=(const graph& g)
 
 
 // ========================== Adjaceny Matrix Constructor ======================
-void graph::constructAdjMatrix(std::string filename)
+template <class KeyType>
+void graph<KeyType>::constructAdjMatrix(std::string filename)
 //Preconditions:  N/A
 //Postcondition:  Constructs an adjMatrix and does an error check
 {
@@ -280,7 +298,8 @@ void graph::constructAdjMatrix(std::string filename)
 
 
 // =========================== Adjaceny List Constructor =======================
-void graph::constructAdjList()
+template <class KeyType>
+void graph<KeyType>::constructAdjList()
 //Preconditions:  N/A
 //Postcondition:  constructs an adjList
 {
@@ -303,7 +322,8 @@ void graph::constructAdjList()
 
 
 // ======================== Remove White Spaces Method =========================
-string graph::removeWhiteSpaces(std::string line)
+template <class KeyType>
+string graph<KeyType>::removeWhiteSpaces(std::string line)
 //Preconditions:  N/A
 //Postcondition:  removes all white spaces from a given line
 {
@@ -320,8 +340,9 @@ string graph::removeWhiteSpaces(std::string line)
 }
 
 
-// ========================== DFS NonRecursive Method =========================
-void graph::dfsNonRecursive(int vertex)
+// ========================== DFS NonRecursive Method ==========================
+template <class KeyType>
+void graph<KeyType>::dfsNonRecursive(int vertex)
 //Preconditions:  N/A
 //Postcondition:  outputs the order in which vertices are processed
 {

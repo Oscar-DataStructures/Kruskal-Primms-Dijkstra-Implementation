@@ -11,6 +11,7 @@ Project 9
 #include <iostream>
 #include <typeinfo>
 #include <fstream>
+#include <map>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ Node<KeyType>* newNode(KeyType data)
 //Postcondition:	Returns a dynamically allocated keytype Node pointer that updates its key value to be the one in the parameter
 {
 	Node<KeyType>* node = new Node<KeyType>();		//dynamically allocate Node
-	node->parent = NULL;
+	node->parent = node;
   node->rank = 0;
 	node->data = data;															//Sets the node key to the key parameter
 
@@ -47,6 +48,7 @@ djs<KeyType>::djs(const djs<KeyType>& ds)
 //Postcondition:  N/A
 {
   this.setMap = ds.setMap;
+	deepCopy();
 }
 
 
@@ -60,13 +62,23 @@ djs<KeyType>::~djs()
 }
 
 
+// ============================== Deep Copy Method  ============================
+template <class KeyType>
+djs<KeyType>& djs<KeyType>::deepCopy()
+// PreConditions:		N/A
+// PostConditions:	N/A
+{
+		//this needs to reconstruct the tree structure
+}
+
+
 // ================================= Clear Nodes ===============================
 template <class KeyType>
 void djs<KeyType>::clearNodes()
 // PreConditions:		N/A
 // PostConditions:	Deallocates memory and destroys existing bst
 {
-
+		//needs to dynamically deallocate nodes
 }
 
 
@@ -77,8 +89,7 @@ void djs<KeyType>::makeSet(KeyType x)
 //Postcondition:  N/A
 {
   Node<KeyType>* node = newNode(x);
-  node->parent = node;
-  node->rank = 0;
+	setMap[x] = node;	//creates key x with node as value
 }
 
 
@@ -124,16 +135,32 @@ Node<KeyType>* djs<KeyType>::findSet(KeyType x)
   }
 
   node->parent = findSet(x);
+
   return node->parent;
 }
 
 
-// ============================= To String Method ==============================
+// ============================= Display Set Map  Method =======================
 template <class KeyType>
-std::string djs<KeyType>::toString() const
+std::string djs<KeyType>::display_setMap()
+//Preconditions:  N/A
+//Postcondition:  N/A
 {
-  std::stringstream ss;
-  ss << "[";
+  ostringstream sMap;
 
-  return ss.str();
+  for(auto it = setMap.begin(); it != setMap.end(); ++it)
+  {
+		sMap << it->first << " : ";	//prints each key
+		Node<KeyType>* tmp = it->second;
+		sMap << tmp->data;
+
+		while (tmp->parent != tmp)
+		{
+			sMap << tmp->data << ", ";
+			tmp = tmp->parent;
+		}
+		sMap << "\n";
+  }
+
+  return sMap.str();
 }
