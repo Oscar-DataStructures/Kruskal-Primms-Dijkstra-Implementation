@@ -15,6 +15,7 @@ Project 9
 #include <sstream>
 #include <map>
 #include <vector>
+#include "djs.h"
 
 using namespace std;
 
@@ -30,13 +31,16 @@ class graph
 
 
 		void dfs();		//it visits in small to large by changing the order of the adjList
-		string topologicalsort();
+		std::string topologicalsort();
 		std::vector<int> countInDegree();
 
-		string display_colors();
-		string display_adjList();
-		string display_adjMatrix();
+		std::string display_colors();
+		std::string display_adjList();
+		std::string display_adjMatrix();
 
+		std::string Kruskal();
+		void Prim(int root);
+		std::string Dijkstra(int s);
 
 		graph& operator=(const graph& g);   //sets this table equal to the assigned h's table
 

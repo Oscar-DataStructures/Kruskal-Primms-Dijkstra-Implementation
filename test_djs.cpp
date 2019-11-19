@@ -15,7 +15,8 @@ Project 9
 // ======================= Test Default Constructor Method =====================
 void test_defaultConstructor()
 {
-
+	djs<int> a;
+	a.makeSet(2);
 
 }
 
@@ -28,14 +29,44 @@ void test_copyConstructor()
 }
 
 
+// ============================= Test Make Set Method ==========================
+void test_makeSet()
+{
+
+
+}
+
+
+// =========================== Test Union Sets  Method =========================
+void test_unionSets()
+{
+
+
+}
+
+
+// ============================ Test Find Set  Method ==========================
+void test_findSet()
+{
+
+
+}
+
+
 // ==================================== Main ===================================
 // =============================================================================
 int main()
 {
 	test_defaultConstructor();
-	std::cout << "Default Constructor Test	|Passed|" << std::endl;
+	std::cout << "Default Constructor Test:	|Passed|" << std::endl;
 	test_copyConstructor();
-	std::cout << "Copy Constructor Test		|Passed|" << std::endl;
+	std::cout << "Copy Constructor Test:		|Passed|" << std::endl;
+	test_makeSet();
+	std::cout << "Make Set Test:			|Passed|" << std::endl;
+	test_unionSets();
+	std::cout << "Union Set Test:			|Passed|" << std::endl;
+	test_findSet();
+	std::cout << "Find Set Test: 			|Passed|" << std::endl;
 
 	return 0;
 }

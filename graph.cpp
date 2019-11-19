@@ -203,6 +203,33 @@ string graph::display_adjMatrix()
 }
 
 
+// ========================== Kruskal's Algorithm Method =======================
+std::string graph::Kruskal()
+//Preconditions:  N/A
+//Postcondition:
+{
+
+}
+
+
+// =========================== Prim's Algorithm Method =========================
+void graph::Prim(int root)
+//Preconditions:  N/A
+//Postcondition:
+{
+
+}
+
+
+// ========================= Dijkstra's Algorithm Method =======================
+std::string graph::string Dijkstra(int s)
+//Preconditions:  N/A
+//Postcondition:
+{
+
+}
+
+
 // =========================== Assignment Opertor Method =======================
 graph& graph::operator=(const graph& g)
 //Preconditions:  N/A

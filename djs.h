@@ -19,13 +19,14 @@ template <class KeyType>
 class Node
 {
 	public:
-		KeyType key; //value held in node
+		KeyType data; //value held in node
+		int rank;
 		Node<KeyType>* parent; //parent node
 };
 
 
 template <class KeyType>
-Node<KeyType>* newNode(KeyType key);
+Node<KeyType>* newNode(KeyType data);
 
 
 template <class KeyType>
@@ -35,13 +36,16 @@ class djs
     djs();
     djs(const djs<KeyType>& ds);
 		~djs();
-		// makeSet(KeyType x);
-		// union(KeyType x);
-		// findSset(KeyType x);
 
+		void clearNodes();
+		void makeSet(KeyType x);
+		void unionSets(KeyType x, KeyType y);
+		Node<KeyType>* findSet(KeyType x);
+
+		std::string toString() const;
+		
 	protected:
-		// map<int x, KeyType y> setMap;
-		Node<KeyType>* root;
+		map<int, KeyType> setMap;
 
 };
 
