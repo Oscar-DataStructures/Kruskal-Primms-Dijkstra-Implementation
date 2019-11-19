@@ -22,6 +22,8 @@ class Node
 		KeyType data; //value held in node
 		int rank;
 		Node<KeyType>* parent; //parent node
+
+		//TODO:overload == operator for data
 };
 
 
@@ -41,13 +43,15 @@ class djs
 		void clearNodes();
 		void makeSet(KeyType x);
 		void unionSets(KeyType x, KeyType y);
+		KeyType findSet(KeyType x);
 
 
 		std::string display_setMap();
+		djs<KeyType>& operator=(const djs<KeyType>& ds);
 
 	protected:
 		map<KeyType, Node<KeyType>*> setMap;	//mapping of set values to nodes which have tree structure built using pointers
-		Node<KeyType>* findSet(KeyType x);
+		Node<KeyType>* helpFindSet(KeyType x);
 
 };
 

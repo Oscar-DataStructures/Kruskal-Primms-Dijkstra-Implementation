@@ -218,10 +218,10 @@ std::string graph<KeyType>::Kruskal()
 //Preconditions:  N/A
 //Postcondition:
 {
-  djs<KeyType>();
+  djs<KeyType> a;
   for(int i = 0; i < numVertices; i++)
   {
-    //makeSet(i);
+    a.makeSet(i);
   }
 }
 
@@ -232,7 +232,25 @@ void graph<KeyType>::Prim(int root)
 //Preconditions:  N/A
 //Postcondition:
 {
-  //use queue
+  vector<int> keyValues;
+  for(int i = 0; i < numVertices; i++)
+  {
+    keyValues.push_back(infinity);
+  }
+  // keyValues[root] = 0;
+  // priority_queue <int> q;
+  // while (q.empty() == false)
+  // {
+  //   int u = q.extractMin();
+  //   int vecLen = adjList.at(u).size();    //gets size of vector at key j
+  //   for(int i = 0; i < vecLen; i++)   //gets neighbors
+  //   {
+  //
+  //   }
+  //
+  // }
+
+
 }
 
 
@@ -257,6 +275,11 @@ graph<KeyType>& graph<KeyType>::operator=(const graph<KeyType>& g)
   this->adjMatrix = g.adjMatrix;
   this->colors = g.colors;
 }
+
+
+//==============================================================================
+//============================== PRIVATE METHODS ===============================
+//==============================================================================
 
 
 // ========================== Adjaceny Matrix Constructor ======================

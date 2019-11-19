@@ -15,11 +15,14 @@ Project 9
 #include <sstream>
 #include <map>
 #include <vector>
+#include <limits>
 #include "djs.h"
 
 using namespace std;
 
 enum Color {WHITE, GRAY, BLACK};	//0 = white, 1 = gray, 2 = black
+int infinity = std::numeric_limits<int>::max();
+
 
 template <class KeyType>
 class graph

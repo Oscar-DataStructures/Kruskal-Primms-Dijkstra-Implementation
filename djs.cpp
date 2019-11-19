@@ -16,7 +16,7 @@ Project 9
 using namespace std;
 
 
-//============================ New Node Method ==============-==================
+//============================ New Node Method =================================
 template <class KeyType>
 Node<KeyType>* newNode(KeyType data)
 //Preconditions: 	N/A
@@ -62,13 +62,13 @@ djs<KeyType>::~djs()
 }
 
 
-// ============================== Deep Copy Method  ============================
+// ============================== Deep Copy Method =============================
 template <class KeyType>
 djs<KeyType>& djs<KeyType>::deepCopy()
 // PreConditions:		N/A
 // PostConditions:	N/A
 {
-		//this needs to reconstruct the tree structure
+		//TODO: this needs to reconstruct the tree structure
 }
 
 
@@ -78,7 +78,7 @@ void djs<KeyType>::clearNodes()
 // PreConditions:		N/A
 // PostConditions:	Deallocates memory and destroys existing bst
 {
-		//needs to dynamically deallocate nodes
+		//TODO: needs to dynamically deallocate nodes
 }
 
 
@@ -102,8 +102,8 @@ void djs<KeyType>::unionSets(KeyType x, KeyType y)
   Node<KeyType>* nodeX = newNode(x);
   Node<KeyType>* nodeY = newNode(x);
 
-  nodeX = findSet(x);
-  nodeY = findSet(y);
+  nodeX = helpFindSet(x);
+  nodeY = helpFindSet(y);
 
   if(nodeX->rank > nodeY->rank)
   {
@@ -124,19 +124,13 @@ void djs<KeyType>::unionSets(KeyType x, KeyType y)
 
 // ============================ Find Set Method ================================
 template <class KeyType>
-Node<KeyType>* djs<KeyType>::findSet(KeyType x)
+KeyType djs<KeyType>::findSet(KeyType x)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  Node<KeyType>* node = newNode(x);
-  if (node == node->parent)
-  {
-    return node;
-  }
+  Node<KeyType>* node = helpFindSet(x);
 
-  node->parent = findSet(x);
-
-  return node->parent;
+	return node->data;
 }
 
 
@@ -163,4 +157,27 @@ std::string djs<KeyType>::display_setMap()
   }
 
   return sMap.str();
+}
+
+
+//==============================================================================
+//============================== PRIVATE METHODS ===============================
+//==============================================================================
+
+
+// ========================= Help Find Set Method ==============================
+template <class KeyType>
+Node<KeyType>* djs<KeyType>::helpFindSet(KeyType x)
+//Preconditions:  N/A
+//Postcondition:  N/A
+{
+  Node<KeyType>* node = newNode(x);
+  if (node == node->parent)
+  {
+    return node;
+  }
+
+  node->parent = helpFindSet(x);
+
+  return node->parent;
 }
