@@ -1,38 +1,22 @@
-#include <iostream>
-#include <string>
-using namespace std;
+/*
+Oscar Martinez, Xinduo Fan
+CS 271
+Dr. Lall
+Project 9
+*/
+
 
 #ifndef _pqueue_h
 #define _pqueue_h
+
+#include <iostream>
+#include <string>
+#include "minHeap.h"
+
+using namespace std;
+
+
 const int DEFAULT_SIZE = 10;
-
-
-template <class KeyType>
-class MinHeap
-{
-  public:
-    MinHeap(int n = DEFAULT_SIZE); // default constructor
-    MinHeap(KeyType* initA[], int n); // construct heap from array
-    MinHeap(const MinHeap<KeyType>& heap); // copy constructor
-    ~MinHeap(); // destructor
-    void heapSort(KeyType* sorted[]); // heapsort, return result in sorted
-    std::string toString() const; // return string representation
-    MinHeap<KeyType>& operator=(const MinHeap<KeyType>& heap); // assignment operator
-
-  protected:
-    KeyType **A; // array containing the heap
-    int heapSize; // size of the heap
-    int capacity; // size of A
-    void heapify(int index); // heapify subheap rooted at index
-    void buildHeap(); // build heap
-    int leftChild(int index) { return 2 * index + 1; } // return index of left child
-    int rightChild(int index) { return 2 * index + 2; } // return index of right child
-    int parent(int index) { return (index - 1) / 2; } // return index of parent
-    void swap(int index1, int index2); // swap elements in A
-    void copy(const MinHeap<KeyType>& heap); // copy heap to this heap
-    void destroy(); // deallocate heap
-};
-
 
 
 template <class KeyType>
@@ -74,21 +58,23 @@ std::ostream& operator<<(std::ostream& stream, const MinPriorityQueue<KeyType>& 
 class FullError { }; // MinPriorityQueue full exception
 class EmptyError { }; // MinPriorityQueue empty exception
 class KeyError { }; // MinPriorityQueue key exception
-/*
-template <class KeyType>
-class node
-{
-  public:
-    node(KeyType label,float p){key= label; priority = p;};
-    KeyType key;
-    float priority;
-};
 
-template <class KeyType>
-string to_string(const node<KeyType>& node);
+// template <class KeyType>
+// class node
+// {
+//   public:
+//     node(KeyType label,float p){key= label; priority = p;};
+//     KeyType key;
+//     float priority;
+// };
+//
+// template <class KeyType>
+// string to_string(const node<KeyType>& node);
+//
+// template <class KeyType>
+// bool operator<=(const node<KeyType>& lnode,const node<KeyType>& rnode) {return (lnode.priority<=rnode.priority);}
 
-template <class KeyType>
-bool operator<=(const node<KeyType>& lnode,const node<KeyType>& rnode) {return (lnode.priority<=rnode.priority);}
-*/
 #include "pqueue.cpp"
+
+
 #endif

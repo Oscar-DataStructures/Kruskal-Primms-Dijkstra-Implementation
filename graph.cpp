@@ -260,7 +260,23 @@ std::string graph<KeyType>::Dijkstra(int s)
 //Preconditions:  N/A
 //Postcondition:
 {
-  //use queue
+  // initialize graph
+  // initialize pq
+  // pq.insertAll(graph.getVertices())
+  //
+  // while (pq is not empty) {
+  //   vertex = pq.remove()
+  //   edges = vertex.getEdges()
+  //
+  //   for all edges {
+  //     destination = edge.getDestination()
+  //     newDistance = edge.getLength() + vertex.getDistance()
+  //     if (newDistance < destination.getDistance()) {
+  //       destination.setShortestDistance(newDistance)
+  //       pq.update(destination)
+  //     }
+  //   }
+
 }
 
 

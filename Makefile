@@ -1,7 +1,7 @@
 
 CPPOPTIONS = -c -g -Wall -std=c++0x
 
-all: test_graph test_djs
+all: test_graph test_djs test_pqueue
 
 //==============================================================================
 
@@ -16,6 +16,12 @@ test_djs.o: test_djs.cpp djs.h djs.cpp
 
 test_djs: test_djs.o
 	g++ -o test_djs test_djs.o
+
+test_pqueue.o: test_pqueue.cpp pqueue.h pqueue.cpp
+	g++ $(CPPOPTIONSS) -c test_pqueue.cpp
+
+test_pqueue: test_pqueue.o
+	g++ -o test_pqueue test_pqueue.o
 
 
 
