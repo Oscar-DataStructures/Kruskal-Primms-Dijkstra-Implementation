@@ -16,26 +16,22 @@ Project 9
 using namespace std;
 
 
-const int DEFAULT_SIZE = 10;
-
-
 template <class KeyType>
 class MinPriorityQueue : public MinHeap<KeyType>
 {
   public:
-    MinPriorityQueue(int n = DEFAULT_SIZE); // construct an empty MPQ with capacity n
-    MinPriorityQueue(const MinPriorityQueue<KeyType>& pq); // copy constructor
-
+    MinPriorityQueue(int n = DEFAULT_SIZE);   // construct an empty MPQ with capacity n
+    MinPriorityQueue(const MinPriorityQueue<KeyType>& pq);    // copy constructor
     // Destructor inherited from MinHeap<KeyType>
-    KeyType* minimum() const; // return the minimum element
-    KeyType* extractMin(); // delete the minimum element and return it
-    void decreaseKey(int index, KeyType* key); // decrease the value of an element
-    void insert(KeyType* key); // insert a new element
-    bool empty() const; // return whether the MPQ is empty
-    int length() const; // return the number of keys
-    std::string toString() const; // return a string representation of the MPQ
 
-    // Assignment operator inherited from MinHeap<KeyType>
+    KeyType* minimum() const;   // return the minimum element
+    KeyType* extractMin();    // delete the minimum element and return it
+    void decreaseKey(int index, KeyType* key);    // decrease the value of an element
+    void insert(KeyType* key);    // insert a new element
+    bool empty() const;   // return whether the MPQ is empty
+    int length() const;   // return the number of keys
+    std::string toString() const;   // return a string representation of the MPQ
+
 
     // Specify that MPQ will be referring to the following members of MinHeap<KeyType>.
     using MinHeap<KeyType>::A;
@@ -55,24 +51,9 @@ class MinPriorityQueue : public MinHeap<KeyType>
 template <class KeyType>
 std::ostream& operator<<(std::ostream& stream, const MinPriorityQueue<KeyType>& pq);
 
-class FullError { }; // MinPriorityQueue full exception
-class EmptyError { }; // MinPriorityQueue empty exception
-class KeyError { }; // MinPriorityQueue key exception
-
-// template <class KeyType>
-// class node
-// {
-//   public:
-//     node(KeyType label,float p){key= label; priority = p;};
-//     KeyType key;
-//     float priority;
-// };
-//
-// template <class KeyType>
-// string to_string(const node<KeyType>& node);
-//
-// template <class KeyType>
-// bool operator<=(const node<KeyType>& lnode,const node<KeyType>& rnode) {return (lnode.priority<=rnode.priority);}
+class FullError { };    // MinPriorityQueue full exception
+class EmptyError { };   // MinPriorityQueue empty exception
+class KeyError { };   // MinPriorityQueue key exception
 
 #include "pqueue.cpp"
 
