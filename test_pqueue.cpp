@@ -17,8 +17,7 @@ using namespace std;
 
 
 // =============== Test Default Constructor/toString/Empty Method ==============
-void test_default_toString_empty()
-{
+void test_default_toString_empty(){
   MinPriorityQueue<int> mpq0;
   MinPriorityQueue<int> mpq1(3);
   MinPriorityQueue<float> mpq0_f(20);

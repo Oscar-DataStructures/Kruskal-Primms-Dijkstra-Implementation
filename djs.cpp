@@ -48,7 +48,7 @@ djs<KeyType>::djs(const djs<KeyType>& ds)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  this.setMap = ds.setMap;
+  this->setMap = ds.setMap;
 	deepCopy();
 }
 
@@ -129,7 +129,7 @@ KeyType djs<KeyType>::findSet(KeyType x)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  Node<KeyType>* rootNode = newNode(x);
+  Node<KeyType>* rootNode = setMap[x];
 	rootNode = helpFindSet(rootNode);
 
 	return rootNode->data;
