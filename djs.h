@@ -51,6 +51,7 @@ class djs
 
 	protected:
 		map<KeyType, Node<KeyType>*> setMap;	//mapping of set values to nodes which have tree structure built using pointers
+		
 		Node<KeyType>* helpFindSet(Node<KeyType>* x);
 
 };

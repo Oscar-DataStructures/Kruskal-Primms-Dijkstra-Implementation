@@ -27,6 +27,7 @@ Node<KeyType>* newNode(KeyType data)
   node->rank = 0;
 	node->data = data;															//Sets the node key to the key parameter
 
+
 	return node;
 }
 
@@ -99,24 +100,24 @@ void djs<KeyType>::unionSets(KeyType x, KeyType y)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  Node<KeyType>* nodeX = newNode(x);
-  Node<KeyType>* nodeY = newNode(x);
+  Node<KeyType>* nodeX = setMap[x];
+  Node<KeyType>* nodeY = setMap[y];
 
   nodeX = helpFindSet(nodeX);
   nodeY = helpFindSet(nodeY);
 
-  if(nodeX->rank > nodeY->rank)
+  if(nodeX->rank >= nodeY->rank)
   {
     nodeY->parent = nodeX;
+		if(nodeX->rank == nodeY->rank)
+    {
+      nodeX->rank++;
+    }
   }
 
   else
   {
     nodeX->parent = nodeY;
-    if(nodeX->rank == nodeY->rank)
-    {
-      nodeY->rank++;
-    }
   }
 
 }
@@ -151,8 +152,8 @@ std::string djs<KeyType>::display_setMap()
 
 		while (tmp->parent != tmp)
 		{
-			sMap << tmp->data << ", ";
 			tmp = tmp->parent;
+			sMap << ", " << tmp->data ;
 		}
 		sMap << "\n";
   }
