@@ -21,10 +21,12 @@ void test_defaultConstructor()
 	a.makeSet(2);
 	a.makeSet(3);
 
+	cout << a.findSet(0) << endl;
 	cout << a.display_setMap() << endl;
 
 	a.unionSets(0, 1);
 
+	cout << a.findSet(0) << endl;
 	cout << a.display_setMap() << endl;
 
 }

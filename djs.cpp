@@ -102,8 +102,8 @@ void djs<KeyType>::unionSets(KeyType x, KeyType y)
   Node<KeyType>* nodeX = newNode(x);
   Node<KeyType>* nodeY = newNode(x);
 
-  nodeX = helpFindSet(x);
-  nodeY = helpFindSet(y);
+  nodeX = helpFindSet(nodeX);
+  nodeY = helpFindSet(nodeY);
 
   if(nodeX->rank > nodeY->rank)
   {
@@ -128,9 +128,10 @@ KeyType djs<KeyType>::findSet(KeyType x)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  Node<KeyType>* node = helpFindSet(x);
+  Node<KeyType>* rootNode = newNode(x);
+	rootNode = helpFindSet(rootNode);
 
-	return node->data;
+	return rootNode->data;
 }
 
 
@@ -167,17 +168,16 @@ std::string djs<KeyType>::display_setMap()
 
 // ========================= Help Find Set Method ==============================
 template <class KeyType>
-Node<KeyType>* djs<KeyType>::helpFindSet(KeyType x)
+Node<KeyType>* djs<KeyType>::helpFindSet(Node<KeyType>* node)
 //Preconditions:  N/A
 //Postcondition:  N/A
 {
-  Node<KeyType>* node = newNode(x);
   if (node == node->parent)
   {
     return node;
   }
 
-  node->parent = helpFindSet(x);
+  node->parent = helpFindSet(node->parent);
 
   return node->parent;
 }

@@ -15,6 +15,20 @@ Project 9
 
 using namespace std;
 
+// template <class KeyType>
+// class Node
+// {
+// 	public:
+// 		KeyType data; //value held in node
+// 		int rank;
+// 		Node<KeyType>* parent; //parent node
+//
+// 		//TODO:overload == operator for data
+// };
+//
+// template <class KeyType>
+// Node<KeyType>* newNode(KeyType data);
+
 
 template <class KeyType>
 class MinPriorityQueue : public MinHeap<KeyType>

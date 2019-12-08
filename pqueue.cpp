@@ -14,6 +14,21 @@ Project 9
 using namespace std;
 
 
+// //============================ New Node Method =================================
+// template <class KeyType>
+// Node<KeyType>* newNode(KeyType data)
+// //Preconditions: 	N/A
+// //Postcondition:	Returns a dynamically allocated keytype Node pointer that updates its key value to be the one in the parameter
+// {
+// 	Node<KeyType>* node = new Node<KeyType>();		//dynamically allocate Node
+// 	node->parent = node;
+//   node->rank = 0;
+// 	node->data = data;															//Sets the node key to the key parameter
+//
+// 	return node;
+// }
+
+
 // ========================== Default Constructor ==============================
 template <class KeyType>
 MinPriorityQueue<KeyType>::MinPriorityQueue(int n): MinHeap<KeyType>(n)
