@@ -224,6 +224,16 @@ std::string graph<KeyType>::Kruskal()
   {
     a.makeSet(i);
   }
+  
+  for(//edges in increasing order)
+  {
+    if(a.findSet(u) != a.findSet(v))
+    {
+      //add edges
+      //a.unionSets(u,v);
+    }
+  }
+
 }
 
 
@@ -391,7 +401,7 @@ void graph<KeyType>::dfsNonRecursive(int vertex)
   colors[vertex] = GRAY;
   processStack.push(vertex);
 
-  cout << "Order of Processed Vertices: ";
+  //cout << "Order of Processed Vertices: ";
   while(processStack.empty() != true)   //while stack is not empty
   {
     int u = processStack.top();       //returns top element
@@ -411,7 +421,7 @@ void graph<KeyType>::dfsNonRecursive(int vertex)
 
     colors[u] = BLACK;    //once no more neighbors we color black
     // j++;    //iterator variable increment
-    cout << u << " ";   //cout the order vertices are processed
+    //cout << u << " ";   //cout the order vertices are processed
   }
-  cout << "\n" << endl;
+  //cout << "\n" << endl;
 }

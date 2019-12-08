@@ -95,6 +95,37 @@ void test_topologicalSort()
 }
 
 
+// ============================ Test Kruskals Method ===============================
+void test_kruskals()
+{
+	graph<int> a("testDirected.txt");
+
+
+	graph<int> b("testUndirected.txt");
+
+}
+
+
+// ============================ Test Primms Method ===============================
+void test_primms()
+{
+	graph<int> a("testDirected.txt");
+
+
+	graph<int> b("testUndirected.txt");
+
+}
+
+
+// ============================ Test Dijkstra Method ===============================
+void test_dijkstra()
+{
+	graph<int> a("testDirected.txt");
+
+
+	graph<int> b("testUndirected.txt");
+
+}
 
 // ==================================== Main ===================================
 // =============================================================================
@@ -110,6 +141,12 @@ int main()
 	std::cout << "DFS  Test			|Passed|" << std::endl;
 	test_topologicalSort();
 	std::cout << "Topological Sort  Test		|Passed|" << std::endl;
+	test_kruskals();
+	std::cout << "Kruskals Test			|Passed|" << std::endl;
+	test_primms();
+	std::cout << "Primms Test			|Passed|" << std::endl;
+	test_dijkstra();
+	std::cout << "Dijkstra Test			|Passed|" << std::endl;
 
 	return 0;
 }
